@@ -15,11 +15,13 @@ function plugin() {
   }
 }
 
-function getTest(hintNodes) {
+function getTest(hintNodes, idx) {
   const [textNode, testStringNode] = hintNodes;
-  const text = mdastToHtml([textNode]);
-  const testString = testStringNode.value;
 
+  textNode.value = `${idx + 1}. ${textNode.value}`;
+  let text = mdastToHtml([textNode]);
+  const testString = testStringNode.value;
+  text = '';
   if (!text) throw Error('text is missing from hint');
   // stub tests (i.e. text, but no testString) are allowed, but the md must
   // have a code block, even if it is empty.
