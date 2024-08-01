@@ -15,8 +15,21 @@ function plugin() {
   }
 }
 
-function getTest(hintNodes) {
+function getTest(hintNodes, idx) {
   const [textNode, testStringNode] = hintNodes;
+
+  const newNode = {
+    type: 'text',
+    value: `${idx + 1}. `,
+    position: {
+      start: textNode.position.start,
+      end: textNode.position.start
+    }
+  };
+
+  // Insert the new node at the beginning of the children array
+  textNode.children.unshift(newNode);
+
   const text = mdastToHtml([textNode]);
   const testString = testStringNode.value;
 
