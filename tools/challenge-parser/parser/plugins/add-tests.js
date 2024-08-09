@@ -16,7 +16,7 @@ function plugin() {
 }
 
 function getTest(hintNodes, idx) {
-  const [textNode, testStringNode] = hintNodes;
+  let [textNode, testStringNode] = hintNodes;
 
   const newNode = {
     type: 'text',
@@ -26,6 +26,8 @@ function getTest(hintNodes, idx) {
       end: textNode.position.start
     }
   };
+
+  textNode = JSON.parse(JSON.stringify(textNode));
 
   // Insert the new node at the beginning of the children array
   textNode.children.unshift(newNode);

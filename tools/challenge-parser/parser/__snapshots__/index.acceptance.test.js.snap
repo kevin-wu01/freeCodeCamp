@@ -166,11 +166,11 @@ for (let index = 0; index < array.length; index++) {
   "tests": [
     {
       "testString": "// test code",
-      "text": "<p>First hint</p>",
+      "text": "<p>1. First hint</p>",
     },
     {
       "testString": "// more test code",
-      "text": "<p>Second hint with <code>code</code></p>",
+      "text": "<p>2. Second hint with <code>code</code></p>",
     },
   ],
 }
@@ -231,11 +231,11 @@ exports[`challenge parser should not mix other YAML with the frontmatter 1`] = `
   "tests": [
     {
       "testString": "// test code",
-      "text": "<p>First hint</p>",
+      "text": "<p>1. First hint</p>",
     },
     {
       "testString": "// more test code",
-      "text": "<p>Second hint with <code>code</code></p>",
+      "text": "<p>2. Second hint with <code>code</code></p>",
     },
   ],
 }
@@ -398,14 +398,14 @@ a {
   document.querySelectorAll('main > section')[1] &&
     code.match(/\\<\\/section>/g).length == 2
 );",
-      "text": "<p>The second <code>section</code> element appears to be missing or does not have both an opening and closing tag.</p>",
+      "text": "<p>1. The second <code>section</code> element appears to be missing or does not have both an opening and closing tag.</p>",
     },
     {
       "testString": "assert(
   document.querySelectorAll('main > section')[1].lastElementChild.nodeName ===
     'H3'
 );",
-      "text": "<p>There should be an <code>h3</code> element right above the second <code>section</code> element's closing tag.</p>",
+      "text": "<p>2. There should be an <code>h3</code> element right above the second <code>section</code> element's closing tag.</p>",
     },
     {
       "testString": "assert(
@@ -414,7 +414,7 @@ a {
     .lastElementChild.innerText.toLowerCase()
     .replace(/\\s+/g, ' ') === 'things cats love:'
 );",
-      "text": "<p>The <code>h3</code> element right above the second <code>section</code> element's closing tag should have the text <code>Things cats love:</code>. Make sure to include the colon at the end of the text.</p>",
+      "text": "<p>3. The <code>h3</code> element right above the second <code>section</code> element's closing tag should have the text <code>Things cats love:</code>. Make sure to include the colon at the end of the text.</p>",
     },
     {
       "testString": "const secondSectionLastElemNode = document.querySelectorAll('main > section')[1]
@@ -425,7 +425,7 @@ assert(
       .toLowerCase()
       .replace(/\\s+/g, ' ') === 'cat lists'
 );",
-      "text": "<p>There should be an <code>h2</code> element with the text <code>Cat Lists</code> above the last <code>h3</code> element that is nested in the last <code>section</code> element'. You may have accidentally deleted the <code>h2</code> element.</p>",
+      "text": "<p>4. There should be an <code>h2</code> element with the text <code>Cat Lists</code> above the last <code>h3</code> element that is nested in the last <code>section</code> element'. You may have accidentally deleted the <code>h2</code> element.</p>",
     },
   ],
 }
@@ -515,18 +515,18 @@ exports[`challenge parser should parse a simple md file 1`] = `
   "tests": [
     {
       "testString": "// test code",
-      "text": "<p>First hint</p>",
+      "text": "<p>1. First hint</p>",
     },
     {
       "testString": "// more test code",
-      "text": "<p>Second hint with <code>code</code></p>",
+      "text": "<p>2. Second hint with <code>code</code></p>",
     },
     {
       "testString": "// more test code
 if(let x of xs) {
   console.log(x);
 }",
-      "text": "<p>Third <em>hint</em> with <code>code</code> and <code>inline code</code></p>",
+      "text": "<p>3. Third <em>hint</em> with <code>code</code> and <code>inline code</code></p>",
     },
   ],
 }
@@ -582,11 +582,11 @@ exports[`challenge parser should parse frontmatter 1`] = `
   "tests": [
     {
       "testString": "// test code",
-      "text": "<p>First hint</p>",
+      "text": "<p>1. First hint</p>",
     },
     {
       "testString": "// more test code",
-      "text": "<p>Second hint with <code>code</code></p>",
+      "text": "<p>2. Second hint with <code>code</code></p>",
     },
   ],
   "title": "Say Hello to HTML Elements",
@@ -692,18 +692,18 @@ exports[`challenge parser should parse gfm strikethrough and frontmatter 1`] = `
   "tests": [
     {
       "testString": "// test code",
-      "text": "<p>First hint</p>",
+      "text": "<p>1. First hint</p>",
     },
     {
       "testString": "// more test code",
-      "text": "<p>Second hint with <code>code</code></p>",
+      "text": "<p>2. Second hint with <code>code</code></p>",
     },
     {
       "testString": "// more test code
 if(let x of xs) {
   console.log(x);
 }",
-      "text": "<p>Third <em>hint</em> with <code>code</code> and <code>inline code</code></p>",
+      "text": "<p>3. Third <em>hint</em> with <code>code</code> and <code>inline code</code></p>",
     },
   ],
 }
