@@ -51,14 +51,16 @@ if(let x of xs) {
   it('does not encode html', () => {
     plugin(simpleAST, file);
     const testObject = file.data.tests[1];
-    expect(testObject.text).toBe('<p>Second hint with <code>code</code></p>');
+    expect(testObject.text).toBe(
+      '<p>2. Second hint with <code>code</code></p>'
+    );
   });
 
   it('converts test text from md to html', () => {
     plugin(simpleAST, file);
     const testObject = file.data.tests[2];
     expect(testObject.text).toBe(
-      '<p>Third <em>hint</em> with <code>code</code>' +
+      '<p>3. Third <em>hint</em> with <code>code</code>' +
         ' and <code>inline code</code></p>'
     );
   });
