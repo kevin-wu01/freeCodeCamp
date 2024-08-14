@@ -202,8 +202,8 @@ function* executeTests(testRunner, tests, testTimeout = 5000) {
     const { text, testString } = tests[i];
     const newTest = { text, testString };
     // only the last test outputs console.logs to avoid log duplication.
-    console.log(newTest, 'newTest');
-    //     const newTest = { text: text.replace(/<p>/, `<p>${i + 1}. `), testString };
+
+    // const newTest = { text: text.replace(/<p>/, `<p>${i + 1}. `), testString };
     const firstTest = i === 1;
     try {
       const { pass, err } = yield call(
@@ -238,6 +238,8 @@ function* executeTests(testRunner, tests, testTimeout = 5000) {
         newTest.stack = stack;
       }
 
+      newTest.message = newTest.message.replace(/<p>/, `<p>${i + 1}. `);
+      console.log(newTest, 'newTest');
       yield put(updateConsole(newTest.message));
     } finally {
       testResults.push(newTest);
